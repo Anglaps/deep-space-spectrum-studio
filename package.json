@@ -1,0 +1,32 @@
+{
+  "name": "deep-space-spectrum-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generative engineering suite that decodes real NASA spectroscopic FITS files into print-ready chemical-fingerprint vector art. Built for the Stardance Hack Club.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}
