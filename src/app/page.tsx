@@ -7,8 +7,8 @@ export default async function Home() {
     { phase: "0", label: "Bootstrap", done: true },
     { phase: "1", label: "MAST data", done: true },
     { phase: "2", label: "FITS parser", done: true },
-    { phase: "3", label: "Signal proc.", done: false },
-    { phase: "4", label: "Renderer", done: false },
+    { phase: "3", label: "Signal proc.", done: true },
+    { phase: "4", label: "Renderer", done: true },
     { phase: "5", label: "Dashboard", done: false },
     { phase: "6", label: "Print PDF", done: false },
     { phase: "7", label: "Ship", done: false },
@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 py-16 text-center">
       <p className="mb-6 text-xs uppercase tracking-[0.35em] text-starlight/50">
-        Stardance Hack Club · Phase 2
+        Stardance Hack Club · Phase 4
       </p>
       <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
         Deep Space Spectrum <br /> &amp; Chemical Fingerprint Studio

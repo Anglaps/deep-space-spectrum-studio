@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { loadSpectrum, readManifest, toDTO } from "@/lib/spectra/load";
 import { analyzeSpectrum } from "@/lib/spectra/analyze";
+import { buildScene } from "@/lib/render/scene";
+import { sceneToSVG } from "@/lib/render/svg";
 import SpectrumChart from "@/components/SpectrumChart";
 
 export async function generateStaticParams() {
@@ -20,6 +22,7 @@ export default async function SpectrumPage({
   const dto = toDTO(spectrum);
   const sampleCount = spectrum.wavelength.length;
   const analysis = analyzeSpectrum(spectrum);
+  const artSvg = sceneToSVG(buildScene(analysis, { size: 1000 }), { printInches: 10 });
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
@@ -82,11 +85,38 @@ export default async function SpectrumPage({
         )}
       </section>
 
+      <section className="mt-12">
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-sm uppercase tracking-[0.2em] text-starlight/40">
+              Generative fingerprint
+            </h2>
+            <p className="mt-2 text-sm text-starlight/50">
+              Each detected line becomes a concentric ring: wavelength sets the
+              color, line strength the weight, matched elements add ticks.
+            </p>
+          </div>
+          <a
+            href={`/api/render/${spectrum.id}`}
+            download={`${spectrum.id}-fingerprint.svg`}
+            className="shrink-0 rounded-md border border-starlight/20 px-4 py-2 text-sm text-starlight transition-colors hover:border-starlight/50 hover:bg-nebula/30"
+          >
+            Download SVG (10×10in)
+          </a>
+        </div>
+        <div
+          className="mx-auto aspect-square w-full max-w-xl overflow-hidden rounded-lg border border-starlight/10"
+          // The SVG is generated server-side from our own deterministic
+          // renderer (no user input, no scripts), so inlining it is safe.
+          dangerouslySetInnerHTML={{ __html: artSvg }}
+        />
+      </section>
+
       <p className="mt-8 max-w-2xl text-sm leading-relaxed text-starlight/45">
         Decoded from the raw FITS binary table by the studio&apos;s own parser,
         then continuum-normalized and scanned for absorption and emission lines.
-        Dashed markers on the chart show rest-frame line positions; matched
-        features above feed the generative renderer in the next phase.
+        The rings above are generated deterministically from those features, so
+        the same spectrum always renders the same print-ready artwork.
       </p>
     </main>
   );
