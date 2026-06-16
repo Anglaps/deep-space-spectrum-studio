@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-06-15T20:16:33.325Z",
+  "spectra": [
+    {
+      "id": "sdss-0266-51602-0001",
+      "instrument": "SDSS legacy",
+      "object": "SDSS DR17 plate 266, fiber 1",
+      "file": "sdss-0266-51602-0001.fits",
+      "bytes": 172800,
+      "source": "https://data.sdss.org/sas/dr17/sdss/spectro/redux/26/spectra/lite/0266/spec-0266-51602-0001.fits"
+    },
+    {
+      "id": "sdss-0266-51602-0050",
+      "instrument": "SDSS legacy",
+      "object": "SDSS DR17 plate 266, fiber 50",
+      "file": "sdss-0266-51602-0050.fits",
+      "bytes": 172800,
+      "source": "https://data.sdss.org/sas/dr17/sdss/spectro/redux/26/spectra/lite/0266/spec-0266-51602-0050.fits"
+    },
+    {
+      "id": "sdss-0285-51930-0200",
+      "instrument": "SDSS legacy",
+      "object": "SDSS DR17 plate 285, fiber 200",
+      "file": "sdss-0285-51930-0200.fits",
+      "bytes": 172800,
+      "source": "https://data.sdss.org/sas/dr17/sdss/spectro/redux/26/spectra/lite/0285/spec-0285-51930-0200.fits"
+    },
+    {
+      "id": "sdss-0301-51942-0300",
+      "instrument": "SDSS legacy",
+      "object": "SDSS DR17 plate 301, fiber 300",
+      "file": "sdss-0301-51942-0300.fits",
+      "bytes": 172800,
+      "source": "https://data.sdss.org/sas/dr17/sdss/spectro/redux/26/spectra/lite/0301/spec-0301-51942-0300.fits"
+    }
+  ]
+}
